@@ -6,22 +6,19 @@ import numpy as np
 import tensorflow as tf
 
 
-SUBMISSION_ENCODING = {
-    'basketball': 0,
-    'football': 1,
-    'rowing': 2,
-    'swimming': 3,
-    'tennis': 4,
-    'yoga': 5,
-}
+SUBMISSION_ENCODING = [
+    'basketball',
+    'football',
+    'rowing',
+    'swimming',
+    'tennis',
+    'yoga',
+]
 
 
-def one_hot_encoding(name, positions_dict=SUBMISSION_ENCODING):
+def one_hot_encoding(name, positions=SUBMISSION_ENCODING):
     return np.array(
-        [
-            (1 if positions_dict.get(name.lower(), -1) == i else 0)
-            for i in range(len(positions_dict))
-        ]
+        [(1 if name.lower() == pos else 0) for pos in positions]
     )
 
 
