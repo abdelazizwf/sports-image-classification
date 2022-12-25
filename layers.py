@@ -216,7 +216,7 @@ class XceptionMiddleRU(Layer):
         return Y + inputs
 
     def get_config(self):
-        config = super(XceptionEntryRU, self).get_config()
+        config = super(XceptionMiddleRU, self).get_config()
         config.update({
             "filters": self.filters,
         })
