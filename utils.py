@@ -52,6 +52,7 @@ def write_predictions(path, file_names, predictions):
     with open(path, 'w', newline='') as f:
         writer = csv.writer(f, delimiter=',')
         writer.writerow(['image_name', 'label'])
+
         for fname, preds in zip(file_names, predictions):
             pred = preds.argmax()
             writer.writerow([fname, pred])
